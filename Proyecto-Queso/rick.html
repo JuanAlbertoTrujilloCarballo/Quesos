@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+    <script src="js/components/video.js"></script>
+    <script src="js/components/music.js"></script>
+    <script src="js/components/do_click_sound.js"></script>
+    <script src="js/components/change_site.js"></script>
+    
+    <link rel="stylesheet" href="css/sytles.css">
+
+
+</head>
+
+<body>
+
+    <div class="button-container">
+        <button id="speaker-button">
+            <img id="speaker-img" src="img/Sound_off.png" alt="texture">
+        </button>
+    </div>
+
+    <a-scene>
+
+
+        <a-assets>
+            <audio id="click-sound" src="sounds/click_sound.m4a" preload="auto"></audio>
+            <audio id="audio" src="sounds/never_gonna_short.mp3" preload="auto"></audio>
+            <video muted id="rick-video" autoplay loop src="video/Rick_Rolled.mp4"></video>
+            <img id="rick-image" src="img/rick.webp" alt="example 1">
+        </a-assets>
+
+        <a-camera>
+            <a-cursor raycaster="objects: .clickable"></a-cursor>
+        </a-camera>
+
+    <a-sphere class="clickable" material="src: #rick-image" position="2 1.6 -2" scale="1 1 1"
+        sound="src: #click-sound" do-click-sound
+        animation__position="property: rotation; to: 0 360 0; dur: 2000; loop: true">
+    </a-sphere>
+
+        <a-video material="src: #rick-video" position="-1 1.6 -1" scale="1 1 1" play-super-video></a-video>
+
+    <!--<a-plane color="green" position="0 1.6 -5"
+    change-site="">
+        <a-text value="Salir" color="black" align="center"></a-text>
+    </a-plane>-->
+
+        <a-sky id="my-sky"
+        sound="src: #audio; loop: true"
+        data-sounding="false"></a-sky>
+    </a-scene>
+
+</body>
+
+</html>

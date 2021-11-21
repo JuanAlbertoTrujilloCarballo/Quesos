@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principal</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <div class="button-container">
+        <button id="speaker-button">
+            <img id="speaker-img" src="img/Sound_off.png" alt="texture">
+        </button>
+    </div>
+    
+    <a-scene>
+
+
+        <a-assets>
+            <audio id="click-sound" src="sound/click_sound.m4a" preload="auto"></audio>
+            <img id="queso-1" src="img/Queso_Curado.webp" alt="cultura">
+            <img id="queso-360-1" src="img/queso_360.jpg" alt="cultura">
+            <audio id="audio" src="sounds/rick-astley-never-gonna-give-you-up-official-music-video.mp3"></audio>
+        </a-assets>
+
+        <a-camera>
+            <a-cursor raycaster="objects: .clickable"></a-cursor>
+        </a-camera>
+
+        <a-sphere class="clickable" material="color: green" position="2 1.6 -2" scale="1 1 1"
+            sound="src: #click-sound" do-click-sound>
+        </a-sphere>
+
+        <a-image src="#queso-1" position="-1 1.6 -1" scale="1 1 1" ></a-image>
+        <a-sky id="my-sky" material="src :#queso-360-1"></a-sky>
+
+    </a-scene>
+
+</body>
+</html>
