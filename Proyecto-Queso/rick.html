@@ -19,8 +19,9 @@
     <script src="js/components/music.js"></script>
     <script src="js/components/do_click_sound.js"></script>
     <script src="js/components/change_site.js"></script>
+    <script src="js/components/canvas.js"></script>
     
-    <link rel="stylesheet" href="css/sytles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
 
 </head>
@@ -37,6 +38,7 @@
 
 
         <a-assets>
+            <canvas id="my-canvas" width="150" height="150"></canvas>
             <audio id="click-sound" src="sounds/click_sound.m4a" preload="auto"></audio>
             <audio id="audio" src="sounds/never_gonna_short.mp3" preload="auto"></audio>
             <video muted id="rick-video" autoplay loop src="video/Rick_Rolled.mp4"></video>
@@ -58,6 +60,8 @@
     change-site="">
         <a-text value="Salir" color="black" align="center"></a-text>
     </a-plane>-->
+
+    <a-plane class="clickable" material="src: #my-canvas; transparent: true" position="0 1.6 -1" draw-canvas></a-plane>
 
         <a-sky id="my-sky"
         sound="src: #audio; loop: true"
